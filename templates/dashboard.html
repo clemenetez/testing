@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Панель управління</title>
+    <link rel="stylesheet" href="D:/goMusor/static/css/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1 class="title">Ласкаво просимо, {{.Username}}!</h1>
+        <p>Ваш email: {{.Email}}</p>
+        <button onclick="logout()" class="btn">Вийти</button>
+    </div>
+
+    <script>
+        function logout() {
+            fetch('/logout', { method: 'POST' })
+                .then(() => window.location.href = '/');
+        }
+    </script>
+</body>
+</html>
