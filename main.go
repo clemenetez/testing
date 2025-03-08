@@ -54,7 +54,7 @@ func main() {
 }
 
 func homeHandler(w http.ResponseWriter, r *http.Request) {
-	tmpl, err := template.ParseFiles("D:/goMusor/templates/index.html")
+	tmpl, err := template.ParseFiles("templates/index.html")
 	if err != nil {
 		log.Println("Помилка при завантаженні шаблону:", err)
 		http.Error(w, err.Error(), http.StatusInternalServerError)
@@ -65,7 +65,7 @@ func homeHandler(w http.ResponseWriter, r *http.Request) {
 
 func loginHandler(w http.ResponseWriter, r *http.Request) {
 	if r.Method == http.MethodGet {
-		tmpl, err := template.ParseFiles("D:/goMusor/templates/login.html")
+		tmpl, err := template.ParseFiles("templates/login.html")
 		if err != nil {
 			log.Println("Помилка при завантаженні шаблону:", err)
 			http.Error(w, err.Error(), http.StatusInternalServerError)
@@ -183,7 +183,7 @@ func dashboardHandler(w http.ResponseWriter, r *http.Request) {
 	}
 
 	// Відображення сторінки
-	tmpl, err := template.ParseFiles("D:/goMusor/templates/dashboard.html")
+	tmpl, err := template.ParseFiles("templates/dashboard.html")
 	if err != nil {
 		log.Println("Помилка при завантаженні шаблону:", err)
 		http.Error(w, err.Error(), http.StatusInternalServerError)
