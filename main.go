@@ -13,9 +13,10 @@ import (
 )
 
 type User struct {
-	Username string `json:"username"`
-	Email    string `json:"email"`
-	Password string `json:"password"`
+	Username      string `json:"username"`
+	Email         string `json:"email"`
+	Password      string `json:"password"`
+	EmailVerified bool   `json:"email_verified"`
 }
 
 type Response struct {
@@ -198,7 +199,8 @@ func createTable() {
 		id INTEGER PRIMARY KEY AUTOINCREMENT,
 		username TEXT UNIQUE,
 		email TEXT UNIQUE,
-		password TEXT
+		password TEXT,
+		email_verified BOOLEAN DEFAULT FALSE
 	);`
 	_, err := db.Exec(sqlStmt)
 	if err != nil {
